@@ -1,6 +1,7 @@
 package sudoku;
 
 import org.junit.jupiter.api.Test;
+import sudoku.board.SudokuBoard;
 
 import static org.junit.jupiter.api.Assertions.*;
 class SudokuClassTest {
