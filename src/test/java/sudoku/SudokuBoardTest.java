@@ -4,24 +4,24 @@ import org.junit.jupiter.api.Test;
 import sudoku.board.SudokuBoard;
 
 import static org.junit.jupiter.api.Assertions.*;
-class SudokuClassTest {
+class SudokuBoardTest {
 
     @Test
-    public void CompareSudoku() {
+    public void testTwoSudokuAreSolvedInDifferentWay() {
         SudokuBoard sudoku1 = new SudokuBoard();
         SudokuBoard sudoku2 = new SudokuBoard();
-        int flag = 0;
+
         sudoku1.solveGame();
         sudoku2.solveGame();
-        for(int i=0;i<9;i++){
-            for(int j=0;j<9;j++){
-                if(sudoku1.get(i,j) == sudoku2.get(i,j)){
-                    flag ++;
+
+        int equalsCount = 0;
+        for(int x=0;x<9;x++) {
+            for(int y=0;y<9;y++) {
+                if(sudoku1.get(x,y) == sudoku2.get(x,y)) {
+                    equalsCount++;
                 }
             }
         }
-        sudoku1.printBoard();
-        sudoku2.printBoard();
-        if (flag == 81) fail("The 2 sudokus are the same");
+        assertNotEquals(equalsCount, 81, "The 2 sudokus are the same");
     }
 }
