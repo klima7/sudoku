@@ -11,7 +11,7 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
 
     @Override
     public void solve(SudokuBoard board) {
-        SudokuSolver.fillBoard(board);
+        fillBoardWithZeros(board);
         backtrack(0, 0,board);
     }
 
@@ -46,4 +46,11 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
         return copy.checkBoard();
     }
 
+    static void fillBoardWithZeros(SudokuBoard board) {
+        for (int y = 0; y < 9; y++) {
+            for (int x = 0; x < 9; x++) {
+                board.set(x, y, 0);
+            }
+        }
+    }
 }
