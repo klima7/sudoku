@@ -3,7 +3,7 @@ package sudoku.board;
 import sudoku.group.SudokuBox;
 import sudoku.group.SudokuColumn;
 import sudoku.group.SudokuRow;
-import sudoku.solver.TypeSudokuSolver;
+import sudoku.solver.BacktrackingSudokuSolver;
 
 public class SudokuBoard {
     public static final int SIZE = 9;
@@ -52,7 +52,7 @@ public class SudokuBoard {
     }
 
     public void solveGame() {
-        TypeSudokuSolver solver = new TypeSudokuSolver();
+        BacktrackingSudokuSolver solver = new BacktrackingSudokuSolver();
         solver.solve(this);
     }
 

@@ -7,20 +7,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class TypeSudokuSolver implements SudokuSolver {
+public class BacktrackingSudokuSolver implements SudokuSolver {
 
     @Override
     public void solve(SudokuBoard board) {
-        clearBoard(board);
+        SudokuSolver.fillBoard(board);
         backtrack(0, 0,board);
-    }
-
-    private void clearBoard(SudokuBoard board) {
-        for (int y = 0; y < 9; y++) {
-            for (int x = 0; x < 9; x++) {
-                board.set(x, y, 0);
-            }
-        }
     }
 
     private boolean backtrack(int y, int x, SudokuBoard board) {
